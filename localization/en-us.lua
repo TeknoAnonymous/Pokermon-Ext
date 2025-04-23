@@ -337,6 +337,14 @@ return {
                     "and {C:inactive}Asleep{} card in full deck {C:inactive}(Currently {C:mult}+#2#{C:inactive} Mult)"
                 }
             },
+            j_poke_ext_stakataka = {
+                name = "Stakataka",
+                text = {
+                    "Adds your {C:attention}last played hand's",
+                    "base {C:chips}chips{} and {C:mult}mult{} to played hand",
+                    "{C:inactive,s:0.8}Currently giving {C:chips,s:0.8}+#1#{C:inactive,s:0.8} and {C:mult,s:0.8}+#2#"
+                }
+            }
         },
 
         Spectral = {
@@ -393,6 +401,14 @@ return {
                 text = {
                     "{C:purple}Poisons {C:attention}2{} selected unsealed cards",
                     "Destroys a random {C:attention}unsealed{} card",
+                },
+            },
+            c_poke_ext_beastball = {
+                name = "Beast Ball",
+                text = {
+                      "Create a random",
+                      "{C:attention}Ultra Beast Pokemon Joker{} card",
+                      "{C:inactive}(Must have room)"
                 },
             },
         },
@@ -464,7 +480,12 @@ return {
     misc = {
         dictionary = {
             poke_ext_settings_experimental = "Enable Experimental Elements?",
-            poke_ext_settings_giratina = 'Enable Giratina?'
+            poke_ext_settings_giratina = 'Enable Giratina?',
+            k_poke_ext_ultrabeast = "Ultra Beast",
+
+            -- From Alolan Vulpix Line
+            poke_ext_aurora_ex = "Aurora!",
+            poke_ext_stack_ex = "Assemble!",
         },
         labels = {
             poke_ext_burned_seal = "Burned Seal",
@@ -473,6 +494,11 @@ return {
             poke_ext_sleep_seal = "Sleep Seal",
             poke_ext_frozen_seal = "Frozen Seal",
             
+            k_poke_ext_ultrabeast = "Ultra Beast",
+
+            -- From Alolan Vulpix Line
+            poke_ext_aurora_ex = "Aurora!",
+            poke_ext_stack_ex = "Assemble!"
         },
     },
 }

@@ -196,6 +196,16 @@ SMODS.Atlas({
   py = 95
 }):register()
 
+SMODS.Rarity {
+  key = "ultrabeast",
+  default_weight = 0,
+  badge_colour = HEX("562D8B"),
+  pools = {["Joker"] = true},
+  get_weight = function(self, weight, object_type)
+    return weight
+  end,
+}
+
 -- Load Placeholder seals
 SMODS.Atlas({
   key = "seals1",
@@ -217,6 +227,7 @@ table.insert(pokermon.family, {"giratina"})
 table.insert(pokermon.family, {"carbink"})
 
 table.insert(pokermon.family, {"a_vulpix", "a_ninetales"})
+table.insert(pokermon.family, {"stakataka"})
 
 table.insert(pokermon.family, {"munna", "musharna"})
 table.insert(pokermon.family, {"mareanie", "toxapex"})
@@ -334,6 +345,9 @@ for _, file in ipairs(pfiles) do
               end
               if pokermon_config.jokers_only and item.rarity == "poke_safari" then
                 item.rarity = 3
+              end
+              if pokermon_config.jokers_only and item.rarity == "poke_ext_ultrabeast" then
+                item.rarity = 4
               end
               item.poke_custom_prefix = default_poke_custom_prefix
               item.discovered = not pokermon_config.pokemon_discovery 
