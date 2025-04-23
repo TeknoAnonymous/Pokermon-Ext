@@ -226,6 +226,42 @@ local stakataka = {
   end
 }
 
+local kartana = {
+  name = "kartana",
+  pos = {x = 8, y = 7},
+  soul_pos = {x = 9, y = 7},
+  rarity = "poke_ext_ultrabeast",
+  config = { extra = { chips = 0, mult = 0 }},
+  cost = 8,
+  stage = "Ultra Beast",
+  atlas = "Pokedex7",
+  ptype = "Grass",
+  blueprint_compat = true,
+  loc_vars = function(self, info_queue, center)
+    type_tooltip(self, info_queue, center)
+    return { vars = { center.ability.extra.chips, center.ability.extra.mult }}
+  end,
+  calculate = function(self, card, context)
+    if context.before then
+      local hand = context.scoring_name
+      if G.GAME.hands[hand].level > 1 then
+        card.ability.extra.chips = card.ability.extra.chips + G.GAME.hands[hand].chips / 2
+        card.ability.extra.mult = card.ability.extra.mult + G.GAME.hands[hand].mult / 2
+        update_hand_text({sound = 'button', volume = 0.7, pitch = 0.8, delay = 0.3}, { handname = localize(hand, 'poker_hands'), chips = G.GAME.hands[hand].chips, mult = G.GAME.hands[hand].mult, level = G.GAME.hands[hand].level})
+        level_up_hand(context.blueprint_card or card, hand, nil, -1)
+        update_hand_text({sound = 'button', volume = 0.7, pitch = 1.1, delay = 0}, { mult = 0, chips = 0, handname = '', level = '' })
+      end
+    end
+    if context.joker_main then
+      return {
+        message = localize{ type = 'variable', key = 'a_mult', vars = { card.ability.extra.mult }},
+        chips = card.ability.extra.chips,
+        mult = card.ability.extra.mult
+      }
+    end
+  end
+}
+
 return {name = "Regional Pokemon Joker 1", 
-        list = {a_vulpix, a_ninetales, shaymin_land, shaymin_sky, stakataka},
+        list = {a_vulpix, a_ninetales, shaymin_land, shaymin_sky, stakataka, kartana,},
 }

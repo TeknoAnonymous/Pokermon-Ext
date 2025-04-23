@@ -341,7 +341,17 @@ return {
                 name = "Stakataka",
                 text = {
                     "Adds your {C:attention}last played hand's",
-                    "base {C:chips}chips{} and {C:mult}mult{} to played hand",
+                    "base {C:chips}Chips{} and {C:mult}Mult{} to played hand",
+                    "{C:inactive,s:0.8}Currently giving {C:chips,s:0.8}+#1#{C:inactive,s:0.8} and {C:mult,s:0.8}+#2#"
+                }
+            },
+            j_poke_ext_kartana = {
+                name = "Kartana",
+                text = {
+                    "Decreases played {C:attention}poker hand's{} level",
+                    "by one, gains {C:chips}Chips{} and {C:mult}Mult",
+                    "equal to half of the base",
+                    "{C:chips}Chips{} and {C:mult}Mult{} of hand",
                     "{C:inactive,s:0.8}Currently giving {C:chips,s:0.8}+#1#{C:inactive,s:0.8} and {C:mult,s:0.8}+#2#"
                 }
             }
@@ -498,7 +508,8 @@ return {
 
             -- From Alolan Vulpix Line
             poke_ext_aurora_ex = "Aurora!",
-            poke_ext_stack_ex = "Assemble!"
+            poke_ext_stack_ex = "Assemble!",
+            poke_ext_slice_ex = "Slice!"
         },
     },
 }
