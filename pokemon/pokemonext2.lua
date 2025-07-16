@@ -138,7 +138,7 @@ local a_vulpix={
 local a_ninetales={
     name = "a_ninetales",
     pos = {x = 6, y = 0},
-    config = {extra = {odds = 9, limit = 1, triggers = 0}},
+    config = {extra = {odds = 4, limit = 1, triggers = 0}},
     rarity = "poke_safari",
     cost = 10,
     stage = "One",
